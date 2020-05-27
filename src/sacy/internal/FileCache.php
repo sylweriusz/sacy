@@ -34,7 +34,7 @@ class FileCache implements Cache {
 
     function set($key, $value){
         $p = $this->key2file($key);
-        if (!@mkdir(dirname($p), 0755, true)){
+        if (!is_dir(dirname($p)) && !@mkdir(dirname($p), 0755, true)) {
             throw new Exception("Failed to create fragment cache dir: $p");
         }
         return @file_put_contents($p, serialize($value));
