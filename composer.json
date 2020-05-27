@@ -19,13 +19,13 @@
     "require": {
         "php": "^7.1",
         "ext-json": "*",
-        "mrclay/jsmin-php": "Use jsmin-php for built-in JS minification",
-        "scssphp/scssphp": "built-in SCSS compilation",
-        "coffeescript/coffeescript": "Built-in CoffeeScript compilation",
-        "leafo/lessphp": "built-in LESS compilation",
-        "ext-sassphp": "use libsass for native sass compilation"
+        "mrclay/jsmin-php": "^2.4",
+        "scssphp/scssphp": "^1.1",
+        "coffeescript/coffeescript": "^1.3",
+        "leafo/lessphp": "^0.5.0"
     },
     "suggest": {
+        "ext-sassphp": "use libsass for native sass compilation",
         "ext-pdo_sqlite": "cache dependencies for a significant speedup"
     }
 }
