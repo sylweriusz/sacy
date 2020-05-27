@@ -2,6 +2,8 @@
 
 namespace sacy\internal;
 
+use sacy\Cache;
+
 /**
  * Class RedisCache
  *  sample of rudimentary Redis cache
