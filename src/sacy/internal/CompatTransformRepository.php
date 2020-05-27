@@ -10,6 +10,7 @@ use sacy\transforms\external\JSX;
 use sacy\transforms\external\Sass;
 use sacy\transforms\external\Scss;
 use sacy\transforms\external\Uglify;
+use sacy\transforms\external\CSSMin;
 use sacy\transforms\internal\Coffeescript;
 use sacy\transforms\internal\JSMin;
 use sacy\transforms\internal\Scssphp;
@@ -24,8 +25,14 @@ class CompatTransformRepository implements TransformRepository {
         $this->loadSass();
         $this->loadJsCompressors();
         $this->loadJSTransforms();
+        $this->loadCSSTransforms();
     }
 
+    private function loadCSSTransforms(){
+        if (class_exists('\tubalmartin\CssMin\Minifier')) {
+            $this->known_transforms['text/css'] = new CSSMin();
+        }
+    }
     private function loadJSTransforms(){
         if (class_exists('\CoffeeScript\Compiler')){
             $this->known_transforms['text/coffeescript'] = new Coffeescript();
