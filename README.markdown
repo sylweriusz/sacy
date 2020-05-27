@@ -1,6 +1,29 @@
 Smarty Asset Compiler (sacy)
 ============================
 
+The basic use of sacy in the application may look like this
+-----------------------------------------------------------
+        
+        $ composer require sylweriusz/sacy
+
+and then
+
+        <?php 
+        //
+        $smarty = new \Smarty();
+        
+        define('SACY_USE_CONTENT_BASED_CACHE', true);
+        define('ASSET_COMPILE_URL_ROOT', '/static');
+        define('ASSET_COMPILE_OUTPUT_DIR', __DIR__.'public/static');
+
+        $sacyConfig = new \sacy\internal\CompatConfiguration();
+        $sacy       = new Sacy($sacyConfig);
+        $sacy->registerSmartyPlugin($smarty);
+
+
+
+============================
+
 be careful: the built phar file will cause issues with the new
 opcache that's bundled with 5.5 and later due to
 [this issue](https://github.com/zendtech/ZendOptimizerPlus/issues/115#issuecomment-25612769)) in opcache.
