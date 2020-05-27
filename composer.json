@@ -1,9 +1,15 @@
 {
-    "name": "pilif/sacy",
+    "name": "sylweriusz/sacy",
     "type": "library",
     "version": "0.9-dev",
     "description": "Smarty asset compiler",
-    "homepage": "https://github.com/pilif/sacy",
+    "homepage": "https://github.com/sylweriusz/sacy",
+    "authors": [
+        {
+            "name": "Philip Hofstetter",
+            "homepage": "https://blog.pilif.me/"
+        }
+    ],
     "autoload": {
         "classmap": ["src/"],
         "psr-4": {
@@ -12,14 +18,14 @@
     },
     "require": {
         "php": "^7.1",
-        "ext-json": "*"
-    },
-    "suggest": {
+        "ext-json": "*",
         "mrclay/jsmin-php": "Use jsmin-php for built-in JS minification",
-        "ext-sassphp": "use libsass for native sass compilation",
+        "scssphp/scssphp": "built-in SCSS compilation",
         "coffeescript/coffeescript": "Built-in CoffeeScript compilation",
         "leafo/lessphp": "built-in LESS compilation",
-        "scssphp/scssphp": "built-in SCSS compilation",
+        "ext-sassphp": "use libsass for native sass compilation"
+    },
+    "suggest": {
         "ext-pdo_sqlite": "cache dependencies for a significant speedup"
     }
 }
