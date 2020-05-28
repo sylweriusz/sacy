@@ -11,10 +11,16 @@ and then
         //...
         $smarty = new \Smarty();
         
-        define('SACY_USE_CONTENT_BASED_CACHE', true);
+        //define directories 
         define('ASSET_COMPILE_URL_ROOT', '/static');
         define('ASSET_COMPILE_OUTPUT_DIR', __DIR__.'public/static');
-
+        
+        //optionally use fragment cache, You can read below about this some more
+        define('SACY_USE_CONTENT_BASED_CACHE', true);
+        define('REDIS_SERVER', '127.0.0.1:6379');
+        define('SACY_FRAGMENT_CACHE_CLASS', '\sacy\internal\RedisCache');
+        
+        //register smarty plugin with configuration class
         $sacyConfig = new \sacy\internal\CompatConfiguration();
         $sacy       = new Sacy($sacyConfig);
         $sacy->registerSmartyPlugin($smarty);
