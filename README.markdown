@@ -22,7 +22,7 @@ and then
         
         //register smarty plugin with configuration class
         $sacyConfig = new \sacy\internal\CompatConfiguration();
-        $sacy       = new Sacy($sacyConfig);
+        $sacy       = new \sacy\Sacy($sacyConfig);
         $sacy->registerSmartyPlugin($smarty);
 
 
