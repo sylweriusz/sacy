@@ -1,9 +1,10 @@
 {
     "name": "sylweriusz/sacy",
     "type": "library",
-    "version": "0.9-dev",
+    "version": "1.0.1",
     "description": "Smarty asset compiler",
     "homepage": "https://github.com/sylweriusz/sacy",
+    "license": "MIT",
     "authors": [
         {
             "name": "Philip Hofstetter",
