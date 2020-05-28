@@ -1,15 +1,14 @@
 Smarty Asset Compiler (sacy)
 ============================
 
-The basic use of sacy in the application may look like this
------------------------------------------------------------
+The very basic use of sacy in the application may look like this:
         
         $ composer require sylweriusz/sacy
 
 and then
 
         <?php 
-        //
+        //...
         $smarty = new \Smarty();
         
         define('SACY_USE_CONTENT_BASED_CACHE', true);

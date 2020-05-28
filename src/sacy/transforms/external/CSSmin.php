@@ -7,6 +7,8 @@ class CSSMin implements \sacy\Transformer
     {
         $input_css  = file_get_contents($in_file);
         $compressor = new \tubalmartin\CssMin\Minifier;
+        $compressor->keepSourceMapComment();
+        $compressor->removeImportantComments();
         return $compressor->run($input_css);
     }
 }
