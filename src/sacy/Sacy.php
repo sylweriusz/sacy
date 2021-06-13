@@ -140,6 +140,9 @@ class Sacy {
                     // and return the initial content unharmed:
                     return $content;
                 }
+                else {
+                    $GLOBALS['SACY_WORKED'] = true;
+                }
                 // add rendered stuff to patched content
                 $m = null;
                 foreach($render as $r){
