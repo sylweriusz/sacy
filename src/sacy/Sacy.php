@@ -163,6 +163,9 @@ class Sacy {
                 // see last comment
                 return $content;
             }
+            else {
+                $GLOBALS['SACY_WORKED'] = true;
+            }
         }
         $m = null;
         foreach($render as $r){
