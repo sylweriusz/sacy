@@ -37,11 +37,7 @@ class Sacy {
         if ($this->handler === null){
             $this->handler = function($params, $content, $smarty, &$repeat){
                 if ($repeat) {
-                    if (class_exists('\Utils\CEP')) {
-                        return \Utils\CEP::saveSacy();
-                    } else {
-                        return null;
-                    }
+                    return null;
                 }
                 return $this->performTagReplacement($content, new BlockParams($this->config, $params));
             };
