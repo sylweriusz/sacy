@@ -18,6 +18,8 @@ class JavaScriptRenderHandler extends ConfiguredRenderHandler{
             fprintf($fh, "    - %s\n", str_replace($this->getParams()->get('server_params')['DOCUMENT_ROOT'], '<root>', $file['file']));
         }
         fwrite($fh, "*/\n\n");
+        $meta_data = stream_get_meta_data($fh);
+        $GLOBALS['SACY_WORKED'] = $meta_data["uri"];
     }
 
     function getOutput($work_unit){
