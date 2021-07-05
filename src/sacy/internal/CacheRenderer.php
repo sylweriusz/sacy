@@ -178,7 +178,7 @@ class CacheRenderer {
                 chmod($cfile, 0644);
                 touch($cfile, $ts);
                 if (class_exists('\Utils\CEP')) {
-                    return \Utils\CEP::saveSacy($cfile);
+                    \Utils\CEP::saveSacy($cfile);
                 } 
             } else {
                 trigger_error("Cannot write file: $cfile", E_USER_WARNING);
