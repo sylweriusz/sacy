@@ -26,19 +26,25 @@ class RedisCache implements Cache
             $port   = 6379;
         }
         if (!self::$connected) {
-            self::$cache     = new \Redis();
-            self::$connected = self::$cache->connect($server, $port, 0.5);
-            self::$cache->setOption(\Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP);
+            try {
+                self::$cache     = new \Redis();
+                self::$connected = self::$cache->connect($server, $port, 0.5);
+                self::$cache->setOption(\Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP);
+            }catch (\Exception $e) {
+                self::$connected = false;
+            }
         }
     }
 
     public function get($key)
     {
-        return self::$cache->get(md5($key));
+        if (self::$connected)
+           return self::$cache->get(md5($key));
     }
 
     public function set($key, $value)
     {
-        return self::$cache->set(md5($key), $value, 5);
+        if (self::$connected)
+            return self::$cache->set(md5($key), $value, 5);
     }
 }
