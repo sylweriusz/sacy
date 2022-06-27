@@ -18,7 +18,6 @@ class BlockParams implements \JsonSerializable {
         $this->params['debug_toggle']  = $config->getDebugToggle();
         $this->params['sassc_plugins'] = [];
         $this->params['debug_mode'] = $config->getDebugMode();
-        $this->params['server_params'] = $config->getServerParams();
 
         $this->params['merge_tags'] = false;
 
@@ -51,7 +50,8 @@ class BlockParams implements \JsonSerializable {
         $this->params = array_merge($this->params, $params);
     }
 
-    function jsonSerialize(){
+    #[\ReturnTypeWillChange]
+    function jsonSerialize() {
         return $this->params;
     }
 }
