@@ -28,7 +28,7 @@ class RedisCache implements Cache
         if (!self::$connected) {
             try {
                 self::$cache     = new \Redis();
-                self::$connected = self::$cache->connect($server, $port, 0.5);
+                self::$connected = self::$cache->connect($server, $port, 5);
                 self::$cache->setOption(\Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP);
             }catch (\Exception $e) {
                 self::$connected = false;
