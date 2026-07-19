@@ -38,13 +38,22 @@ class RedisCache implements Cache
 
     public function get($key)
     {
-        if (self::$connected)
-           return self::$cache->get(md5($key));
+        if (self::$connected) {
+            try {
+                return self::$cache->get(md5($key));
+            } catch (\RedisException $e) {
+                self::$connected = false;
+            }
+        }
     }
 
     public function set($key, $value)
     {
-        if (self::$connected)
-            return self::$cache->set(md5($key), $value, 5);
+        if (self::$connected) {
+            try {
+                return self::$cache->set(md5($key), $value, 5);
+            } catch (\RedisException $e) {
+                self::$connected = false;
+            }
+        }
     }
-}
