@@ -57,3 +57,4 @@ class RedisCache implements Cache
             }
         }
     }
+}
